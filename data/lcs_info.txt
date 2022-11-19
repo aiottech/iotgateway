@@ -1,2 +1,2 @@
-total_file = 12
-latest_file = list12.txt
+total_file = 2
+latest_file = list2.txt
