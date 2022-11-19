@@ -1,0 +1,2 @@
+total_file = 12
+latest_file = list12.txt
