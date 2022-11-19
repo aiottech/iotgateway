@@ -1,2 +1,2 @@
 total_file = 2
-latest_file = list2.txt
+latest_file = list2.dat
