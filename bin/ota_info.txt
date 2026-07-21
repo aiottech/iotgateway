@@ -1,2 +1,0 @@
-latest_version = 1.0.0-c5-testing-ota
-binary_url = https://raw.githubusercontent.com/aiottech/iotgateway/main/bin/mgw_os_v1.0.0-c5-testing-ota.bin
