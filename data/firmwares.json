@@ -1,0 +1,12 @@
+[
+    { 
+      "name": "MGW Core", 
+      "version": "1.0.0-c5-testing-ota", 
+      "url": "https://raw.githubusercontent.com/aiottech/iotgateway/main/bin/mgw_os_v1.0.0-c5-testing-ota.bin" 
+    },
+    { 
+      "name": "MGW Industrial Node", 
+      "version": "1.1.0", 
+      "url": "https://raw.githubusercontent.com/aiottech/iotgateway/main/bin/mcfp_node_v1.1.0.bin" 
+    }
+]
