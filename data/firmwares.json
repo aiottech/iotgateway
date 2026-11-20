@@ -2,6 +2,6 @@
     { 
       "name": "MGW Core", 
       "version": "1.0.0-testing-ota", 
-      "url": "https://raw.githubusercontent.com/aiottech/iotgateway/main/bin/mgw_os_v1.0.0-c5-testing-ota.bin" 
+      "url": "https://raw.githubusercontent.com/aiottech/iotgateway/main/bin/mgw_os_ver1.6.0.bin" 
     }
 ]
