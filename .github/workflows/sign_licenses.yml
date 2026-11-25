@@ -1,0 +1,43 @@
+name: Auto-Sign MGW License Lists
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/*.dat'
+
+permissions:
+  contents: write
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sign all .dat license catalogs with ECDSA P-256
+        env:
+          PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
+        run: |
+          echo "$PRIVATE_KEY" > /tmp/priv.pem
+          for f in data/*.dat; do
+            [ -e "$f" ] || continue
+            sig_file="${f%.dat}.sig"
+            echo "Signing $f -> $sig_file"
+            openssl dgst -sha256 -sign /tmp/priv.pem -out "$sig_file" "$f"
+          done
+          rm -f /tmp/priv.pem
+
+      - name: Commit and push updated .sig files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.sig
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-sign license catalogs [skip ci]"
+            git push
+          else
+            echo "No signature changes to commit."
+          fi
